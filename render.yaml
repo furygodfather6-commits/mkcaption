@@ -1,0 +1,13 @@
+# Render par is bot ko deploy karne ke liye Blueprint
+services:
+  - type: web
+    name: telegram-caption-bot
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn caption_editor_bot:app"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false # Isko Render dashboard me set karein
+      - key: WEBHOOK_URL
+        sync: false # Isko Render dashboard me set karein
+
